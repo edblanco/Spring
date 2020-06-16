@@ -22,7 +22,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages="com.luv2code.springdemo")
-@PropertySource("classpath:persistence-mysql.properties")
+@PropertySource("classpath:persistence-mysql-security.properties")
 public class DemoAppConfig implements WebMvcConfigurer{
 
 	// set up a variable to hold the properties
@@ -67,7 +67,7 @@ public class DemoAppConfig implements WebMvcConfigurer{
 		logger.info(">>> jdbc.user=" + env.getProperty("jdbc.user"));
 		
 		// set database connection props
-		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		securityDataSource.setJdbcUrl(env.getProperty("jdbc.securl"));
 		securityDataSource.setUser(env.getProperty("jdbc.user"));
 		securityDataSource.setPassword(env.getProperty("jdbc.password"));
 		
